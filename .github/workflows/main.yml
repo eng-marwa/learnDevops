@@ -1,18 +1,25 @@
-name :CI
+name: CI
+
+# Controls when the action will run. 
 on:
   push:
-    branches : [master]
+    branches: [ master ]
   pull_request:
-    branches : [master]
-    
-workflow_dispatch:
+    branches: [ master ]
+
+  workflow_dispatch:
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-  steps:
-    uses: actions/checkout@v2
-    
-    name: task1_run_hello_world
-    run: echo hello world
-    
   
+  build:
+    
+    runs-on: ubuntu-latest
+
+    
+    steps:
+      
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
